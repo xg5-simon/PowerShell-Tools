@@ -7,6 +7,14 @@
     URL to download the HTML source code from.
 .PARAMETER directory
     Specifies a path to save results to. 
+.PARAMETER -p
+    Proxy server requires authentication.
+.PARAMETER -u
+    Use unauthenticated proxy or direct internet access.
+.PARAMETER -s
+    Use system configured proxy settings. Default parameter of no other parameters are set.
+.PARAMETER -t
+    Suppress screen output.
 .EXAMPLE
     C:\PS> .\Get-Page-Source.ps1 -getsource www.google.com -directory C:\Temp -p
     Prompt for authentication details, get the HTML source code for www.google.com and save results to the C:\Temp directory.
@@ -14,18 +22,17 @@
 .NOTES
     Author: Simon
     Date:   2016 FEB 15
-    Not a Powershell guru so go easy.
 #>
 
 [CmdletBinding(DefaultParameterSetName='-p')]
 
 Param (    
-    [Parameter(Mandatory=$true)][string]$getsource, # URL to retrieve source code for.
-    [Parameter(Mandatory=$true)][string]$directory,  # Directory to save results.
-    [Parameter(ParameterSetName='-p', Mandatory=$false)][switch]$p, # Use proxy that requires authentication
-    [Parameter(ParameterSetName='-u', Mandatory=$false)][switch]$u, # Use unauthenticated proxy.
-    [Parameter(ParameterSetName='-s', Mandatory=$false)][switch]$s, # Use system configured proxy settings. May or may not require authentication, depends on system configuration.
-    [Parameter(Mandatory=$false)][switch]$t # Supress screen output
+    [Parameter(Mandatory=$true)][string]$getsource, 
+    [Parameter(Mandatory=$true)][string]$directory, 
+    [Parameter(ParameterSetName='-p', Mandatory=$false)][switch]$p,
+    [Parameter(ParameterSetName='-u', Mandatory=$false)][switch]$u,
+    [Parameter(ParameterSetName='-s', Mandatory=$false)][switch]$s,
+    [Parameter(Mandatory=$false)][switch]$t
 )
 
 function SaveResults { param([string]$results)
@@ -59,4 +66,9 @@ if ($s.IsPresent) {
     $web = New-Object System.Net.WebClient
     $source = Get-Results
     SaveResults($source)
+}
+
+# Apply '-s' parameter if no proxy parameters are set.
+if (($p -eq $false) -and ($s -eq $false) -and ($s -eq $false)) {
+    $s = $true
 }
