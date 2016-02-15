@@ -11,8 +11,6 @@
     C:\PS> .\Get-Page-Source.ps1 -getsource www.google.com -directory C:\Temp -p
     Prompt for authentication details, get the HTML source code for www.google.com and save results to the C:\Temp directory.
 
-.TODO
-
 .NOTES
     Author: Simon
     Date:   2016 FEB 15
