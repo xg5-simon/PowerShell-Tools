@@ -16,6 +16,7 @@
 .NOTES
     Author: Simon
     Date:   2016 FEB 15
+    Not a Powershell guru so go easy.
 #>
 
 [CmdletBinding(DefaultParameterSetName='-p')]
