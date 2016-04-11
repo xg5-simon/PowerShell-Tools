@@ -7,6 +7,8 @@
     URL to download the HTML source code from.
 .PARAMETER directory
     Specifies a path to save results to. 
+.PARAMETER savefile
+    Specifies a filename to save to.
 .PARAMETER -p
     Proxy server requires authentication.
 .PARAMETER -u
@@ -21,7 +23,7 @@
 
 .NOTES
     Author: Simon
-    Date:   2016 FEB 15
+    Date:   2016 APR 12
 #>
 
 [CmdletBinding(DefaultParameterSetName='-p')]
@@ -29,6 +31,7 @@
 Param (    
     [Parameter(Mandatory=$true)][string]$getsource, 
     [Parameter(Mandatory=$true)][string]$directory, 
+    [Parameter(Mandatory=$true)][string]$savefile,
     [Parameter(ParameterSetName='-p', Mandatory=$false)][switch]$p,
     [Parameter(ParameterSetName='-u', Mandatory=$false)][switch]$u,
     [Parameter(ParameterSetName='-s', Mandatory=$false)][switch]$s,
@@ -40,7 +43,10 @@ function SaveResults { param([string]$results)
         Write-Host $results | ConvertTo-HTML
     }
 
-    $savedir = "$directory\$(Get-Date -f yyyy_MMM_dd_HHMMss)_$getsource.source"
+    #$savedir = "$directory\$(Get-Date -f yyyy_MMM_dd_HHMMss)_$getsource.source"
+    $savedir = "$directory\$(Get-Date -f yyyy_MMM_dd_HHMMss)_$f.source"
+    #$savedir = "$(Get-Date -f yyyy_MMM_dd_HHMMss)_$getsource.source"
+    Write-Host $savedir
     [io.file]::WriteAllText($savedir, $results) # | ConvertTo-HTML
 }
 
