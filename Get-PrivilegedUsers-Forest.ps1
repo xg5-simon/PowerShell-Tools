@@ -13,7 +13,7 @@
     .NOTES
     NAME: Get-Privileged-Users-Forest.ps1
     ORIGINAL AUTHOR: Doug Symalla
-    MODIFIED: Simon
+    MODIFIED: Simon L
     VERSION: 1.7
     LAST EDIT: 23rd of Nov 2016
 
