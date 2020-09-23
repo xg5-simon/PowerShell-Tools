@@ -6,3 +6,6 @@ Experimental powershell snippits.
 
 #### Get-PrivilegedUsers-Forest.ps1
  - Returns a summary of privileged user accounts in a forest.
+ 
+#### malware_export.ps1
+ - Export Malware Removal metadata from Carbon Black Cloud
