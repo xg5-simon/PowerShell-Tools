@@ -13,11 +13,13 @@
     .NOTES
     NAME: Get-Privileged-Users-Forest.ps1
     ORIGINAL AUTHOR: Doug Symalla
-    MODIFIED: Simon L
+    MODIFIED: Simon Lavigne
     VERSION: 1.7
-    LAST EDIT: 23rd of Nov 2016
+    LAST EDIT: Jan 2021
 
-    TODO: Prompt for user authentication when connecting to Forest without a trust.
+    TODO: 
+     - Prompt for user authentication when connecting to Forest without a trust.
+     - List accounts servicePrincipalName attribute set.
 
     .PARAMETERS
         $ForestName : Set the name forest or domain to query. This script must be run with user level privileges from the forest or domain.
