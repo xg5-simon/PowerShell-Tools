@@ -19,7 +19,7 @@
 
     TODO: 
      - Prompt for user authentication when connecting to Forest without a trust.
-     - List accounts servicePrincipalName attribute set.
+     - List accounts servicePrincipalName attribute set (Get-NetUser | Where-Object {$_.servicePrincipalName} | fl)
 
     .PARAMETERS
         $ForestName : Set the name forest or domain to query. This script must be run with user level privileges from the forest or domain.
