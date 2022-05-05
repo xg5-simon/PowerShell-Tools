@@ -18,8 +18,6 @@
 .NOTES
   Version:        1.0
   Author:         Simon Lavigne
-  Creation Date:  2022 FEB 02
-  Purpose/Change: Initial script development
   
 .EXAMPLE
   ConvertFrom-SentinelYaml -YamlPath 'Hunting queries\AccountAddedToPrivGroup.yaml'
